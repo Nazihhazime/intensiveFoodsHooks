@@ -7,7 +7,7 @@ import { Iitems } from "./interface/IItem";
 
 function Items() {
   const [items, setItems] = useState<Iitems[]>([]);
-  const [pageSize, setPageSize] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(4);
   const [selectedPage, setSelectedPage] = useState<number>(4);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function Items() {
       <Pagination
         pageSize={pageSize}
         selectedPage={selectedPage}
-        itemcount={count}
+        itemCount={count}
       />
     </div>
   );

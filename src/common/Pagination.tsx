@@ -1,15 +1,23 @@
+import _ from "lodash";
+
 interface Props {
   pageSize: number;
   selectedPage: number;
-  itemcount: number;
+  itemCount: number;
 }
 
-function Pagination({ pageSize, selectedPage }: Props): JSX.Element {
+function Pagination({ pageSize, selectedPage, itemCount }: Props): JSX.Element {
+  const pageCount = Math.ceil(itemCount / pageSize);
+
+  const pages = _.range(1, pageCount + 1);
+
   return (
     <ul className="pagination">
-      <li className="page-item">
-        <button className="page-link"> 1</button>
-      </li>
+      {pages.map((page) => (
+        <li className="page-item">
+          <button className="page-link">{page}</button>
+        </li>
+      ))}
     </ul>
   );
 }
