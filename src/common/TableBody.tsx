@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { IitemsArray } from "../interface/IItem";
 
 function TableBody() {
-  const { items, onDelete, onFavor } = useContext(ItemContext) as IitemsArray;
+  const { foods, onDelete, onFavor } = useContext(ItemContext) as IitemsArray;
 
   return (
     <tbody>
-      {items.map((item) => (
-        <tr key={item._id}>
-          <Item onDelete={onDelete} onFavor={onFavor} {...item} />
+      {foods.map((food) => (
+        <tr key={food._id}>
+          <Item onDelete={onDelete} onFavor={onFavor} {...food} />
         </tr>
       ))}
     </tbody>

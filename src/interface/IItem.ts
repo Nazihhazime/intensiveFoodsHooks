@@ -1,6 +1,6 @@
 import IArticle from "./IArticle";
 
-export interface Iitems {
+export interface Iitem {
   _id: string;
   name: string;
   category: IArticle;
@@ -10,12 +10,12 @@ export interface Iitems {
 }
 
 export interface IitemsArray {
-  items: Iitems[];
+  foods: Iitem[];
   onDelete: (id: string) => void;
   onFavor: (id: string) => void;
 }
 
-export interface IitemsObject extends Iitems {
+export interface IitemsObject extends Iitem {
   onDelete: (id: string) => void;
   onFavor: (id: string) => void;
 }
