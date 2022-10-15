@@ -1,0 +1,1 @@
+Glöm inte bugg att listan inte återställs när man deletar allt i en specifik kategori

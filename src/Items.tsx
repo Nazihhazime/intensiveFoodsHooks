@@ -8,6 +8,8 @@ import Listgroup from "./common/Listgroup";
 import IArticle from "./interface/IArticle";
 import { getCategories } from "./service/fakeCategoryService";
 import paginate from "./utils/paginate";
+import ISort from "./interface/ISort";
+import _ from "lodash";
 
 const DEFAULT_ARTICLE = { _id: "", name: "All Categories" };
 
@@ -18,6 +20,10 @@ function Items() {
   const [articles, setArticles] = useState<IArticle[]>([]);
   const [selectedArticle, setSelectedArticle] =
     useState<IArticle>(DEFAULT_ARTICLE);
+  const [sortColumn, setSortColumn] = useState<ISort>({
+    path: "name",
+    order: "asc",
+  });
 
   useEffect(() => {
     setItems(getFoods());
@@ -28,12 +34,22 @@ function Items() {
     ? items.filter((i) => selectedArticle._id === i.category._id)
     : items;
 
-  const foods: Iitem[] = paginate(filteredItems, selectedPage, pageSize);
+  const sortedItems = _.orderBy(
+    filteredItems,
+    [sortColumn.path],
+    [sortColumn.order]
+  );
+
+  const foods: Iitem[] = paginate(sortedItems, selectedPage, pageSize);
 
   const { length: count } = filteredItems;
 
   const handleSelectedPage = (page: number) => {
     setSelectedPage(page);
+  };
+
+  const handleSort = (sortColumn: ISort) => {
+    setSortColumn({ path: sortColumn.path, order: sortColumn.order });
   };
 
   const handleSelectedArticle = (article: IArticle) => {
@@ -75,7 +91,9 @@ function Items() {
           <p>Showing {count} in the database</p>
           <ItemContext.Provider
             value={{
+              sortColumn,
               foods,
+              onSort: handleSort,
               onDelete: handleDelete,
               onFavor: handleIsFavorite,
             }}

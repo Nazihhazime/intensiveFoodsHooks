@@ -1,4 +1,5 @@
 import IArticle from "./IArticle";
+import ISort from "./ISort";
 
 export interface Iitem {
   _id: string;
@@ -11,8 +12,10 @@ export interface Iitem {
 
 export interface IitemsArray {
   foods: Iitem[];
+  sortColumn: ISort;
   onDelete: (id: string) => void;
   onFavor: (id: string) => void;
+  onSort: (sortColumn: ISort) => void;
 }
 
 export interface IitemsObject extends Iitem {

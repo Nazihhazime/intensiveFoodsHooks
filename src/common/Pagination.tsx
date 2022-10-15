@@ -23,6 +23,7 @@ function Pagination({
     <ul className="pagination">
       {pages.map((page) => (
         <li
+          key={page}
           className={selectedPage === page ? "page-item active" : "page-item"}
         >
           <button className="page-link" onClick={() => onSelect(page)}>
