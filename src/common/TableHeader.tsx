@@ -2,7 +2,7 @@ import ItemContext from "../context/ItemContext";
 import { IitemsArray } from "../interface/IItem";
 import { useContext } from "react";
 
-function TableHeader() {
+function TableHeader(columns: any) {
   const { onSort, sortColumn } = useContext(ItemContext) as IitemsArray;
 
   const raiseSort = (path: string) => {

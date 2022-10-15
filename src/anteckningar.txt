@@ -1,1 +1,3 @@
 Glöm inte bugg att listan inte återställs när man deletar allt i en specifik kategori
+
+Glöm inte sätta på typescript regeln när ni lsöt det med columns
