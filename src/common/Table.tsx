@@ -1,6 +1,7 @@
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 
+
 function Table(columns: any) {
   return (
     <div>

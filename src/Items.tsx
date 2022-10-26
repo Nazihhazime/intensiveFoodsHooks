@@ -10,6 +10,7 @@ import { getCategories } from "./service/fakeCategoryService";
 import paginate from "./utils/paginate";
 import ISort from "./interface/ISort";
 import _ from "lodash";
+import ItemTable from "./ItemTable";
 
 const DEFAULT_ARTICLE = { _id: "", name: "All Categories" };
 
@@ -98,7 +99,7 @@ function Items() {
               onFavor: handleIsFavorite,
             }}
           >
-            <Table />
+            <ItemTable />
           </ItemContext.Provider>
           <Pagination
             pageSize={pageSize}

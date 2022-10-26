@@ -1,8 +1,9 @@
 import Favorite from "./common/Favorite";
 import Table from "./common/Table";
+import IColumn from "./interface/IColumn";
 
 function ItemTable(): JSX.Element {
-  const columns: any = [
+  const columns: IColumn2[] = [
     { label: "Name", path: "name" },
     { label: "Category", path: "category.name" },
     { label: "Stock", path: "numberInStock" },
