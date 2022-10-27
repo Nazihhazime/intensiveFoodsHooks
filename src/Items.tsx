@@ -92,15 +92,14 @@ function Items() {
           <p>Showing {count} in the database</p>
           <ItemContext.Provider
             value={{
-              sortColumn,
-              foods,
-              onSort: handleSort,
+              foods: foods,
               onDelete: handleDelete,
               onFavor: handleIsFavorite,
             }}
           >
             <ItemTable />
           </ItemContext.Provider>
+
           <Pagination
             pageSize={pageSize}
             itemCount={count}

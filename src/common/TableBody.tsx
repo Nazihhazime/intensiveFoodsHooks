@@ -1,11 +1,11 @@
-import ItemContext from "../context/ItemContext";
 import ItemTable from "../ItemTable";
-import { useContext } from "react";
-import { IitemsArray } from "../interface/IItem";
 import Favorite from "./Favorite";
+import { useContext } from "react";
+import ItemContext from "../context/ItemContext";
+import { IitemsContext } from "../interface/IItem";
 
 function TableBody() {
-  const { foods, onDelete, onFavor } = useContext(ItemContext) as IitemsArray;
+  const { foods, onDelete, onFavor } = useContext(ItemContext) as IitemsContext;
 
   return (
     <tbody>

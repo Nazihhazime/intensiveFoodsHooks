@@ -10,15 +10,8 @@ export interface Iitem {
   isFavorite?: boolean;
 }
 
-export interface IitemsArray {
+export interface IitemsContext {
   foods: Iitem[];
-  sortColumn: ISort;
-  onDelete: (id: string) => void;
-  onFavor: (id: string) => void;
-  onSort: (sortColumn: ISort) => void;
-}
-
-export interface IitemsObject extends Iitem {
   onDelete: (id: string) => void;
   onFavor: (id: string) => void;
 }
